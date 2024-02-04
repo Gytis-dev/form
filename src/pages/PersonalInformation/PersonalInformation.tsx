@@ -26,7 +26,7 @@ export const PersonalInformation: React.FC = () => {
       .reduce((accumulator: Violation[], { key, value }: FormInput) => {
         switch (key) {
           case FormKey.Name: {
-            if (!value) {
+            if (value.trim().length === 0) {
               accumulator.push({
                 key: FormKey.Name,
                 violation: "First name is a required field",
@@ -35,7 +35,7 @@ export const PersonalInformation: React.FC = () => {
             break;
           }
           case FormKey.LastName: {
-            if (!value) {
+            if (value.trim().length === 0) {
               accumulator.push({
                 key: FormKey.LastName,
                 violation: "Last name is a required field",
